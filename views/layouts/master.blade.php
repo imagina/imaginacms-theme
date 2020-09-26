@@ -15,8 +15,6 @@
     @endif
     <link rel="canonical" href="{{url()->current()}}" />
     <link rel="shortcut icon" href="{{ Theme::url('favicon.ico') }}">
-
-    <link rel="shortcut icon" href="{{ Theme::url('favicon.ico') }}">
     <link rel="canonical" href="{{canonical_url()}}"/>
     {!! Theme::style('css/main.css?v='.config('app.version')) !!}
 
