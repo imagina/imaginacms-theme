@@ -1,6 +1,23 @@
 let mix = require('laravel-mix');
 const WebpackShellPlugin = require('webpack-shell-plugin');
 const themeInfo = require('./theme.json');
+//Module Imports
+const { readdirSync, statSync } = require('fs')
+const { join } = require('path')
+var fs = require('fs')
+
+const dirs = p => readdirSync(p).filter(f => statSync(join(p, f)).isDirectory())
+
+var modules = dirs('../../Modules/')
+
+var jsfilestomerge = []
+
+modules.forEach(function(mname,i) {
+    let pfile = '../../Modules/'+mname+'/Resources/views/vue/components.js'
+    if(fs.existsSync(pfile)) {
+        jsfilestomerge.push([pfile])
+    }
+});
 
 /**
  * Compile sass
@@ -23,8 +40,7 @@ mix.scripts([
     'resources/js/imagina.js'
   ], 'assets/js/secondary.js')
   .scripts([
-      'resources/js/app.js',
-      '../../Modules/Icommerce/Resources/views/vue/components.js'
+      'resources/js/app.js',...jsfilestomerge
   ], 'resources/js/main.js');
 
 
@@ -44,10 +60,25 @@ mix.copy(
   '../../../public_html/fonts/vendor/font-awesome'
 );
 
-mix.copy(
-  '../../Modules/Icommerce/Resources/views/vue/components/',
-  './resources/js/components/icommerce'
-);
+
+/*
+ * Copy Modules Source Resources
+ */
+
+modules.forEach(function(mname,i) {
+
+    let path = '../../Modules/'+mname+'/Resources/views/vue/components/'
+
+    if(fs.existsSync(path)) {
+        mix.copy(
+            path,
+            './resources/js/components/'+mname.toLowerCase()
+        );
+    }
+
+
+});
+
 
 /*
 Overwrite files from components
@@ -68,3 +99,5 @@ mix.webpackConfig({
     new WebpackShellPlugin({onBuildEnd: ['php ../../artisan stylist:publish ' + themeInfo.name]})
   ]
 });
+
+

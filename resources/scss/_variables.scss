@@ -1,3 +1,5 @@
+// Update to Bootstrap 4.5.2
+
 // Variables
 //
 // Variables should follow the `$component-state-property-size` formula for
@@ -9,29 +11,28 @@ $white:    #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
-$gray-400: #C8C8C8 !default;
+$gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
 $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
-$gray-900: #212023 !default;
+$gray-900: #212529 !default;
 $black:    #000 !default;
 
 $grays: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
 $grays: map-merge(
-  (
-    "100": $gray-100,
-    "200": $gray-200,
-    "300": $gray-300,
-    "400": $gray-400,
-    "500": $gray-500,
-    "600": $gray-600,
-    "700": $gray-700,
-    "800": $gray-800,
-    "900": $gray-900
-  ),
-  $grays
+                (
+                        "100": $gray-100,
+                        "200": $gray-200,
+                        "300": $gray-300,
+                        "400": $gray-400,
+                        "500": $gray-500,
+                        "600": $gray-600,
+                        "700": $gray-700,
+                        "800": $gray-800,
+                        "900": $gray-900
+                ),
+                $grays
 );
 
 $blue:    #007bff !default;
@@ -40,55 +41,53 @@ $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
 $red:     #dc3545 !default;
 $orange:  #fd7e14 !default;
-$yellow:  #ECC008 !default;
-$green:   #008640 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 
 $colors: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
 $colors: map-merge(
-  (
-    "blue":       $blue,
-    "indigo":     $indigo,
-    "purple":     $purple,
-    "pink":       $pink,
-    "red":        $red,
-    "orange":     $orange,
-    "yellow":     $yellow,
-    "green":      $green,
-    "teal":       $teal,
-    "cyan":       $cyan,
-    "white":      $white,
-    "gray":       $gray-600,
-    "gray-dark":  $gray-800
-  ),
-  $colors
+                (
+                        "blue":       $blue,
+                        "indigo":     $indigo,
+                        "purple":     $purple,
+                        "pink":       $pink,
+                        "red":        $red,
+                        "orange":     $orange,
+                        "yellow":     $yellow,
+                        "green":      $green,
+                        "teal":       $teal,
+                        "cyan":       $cyan,
+                        "white":      $white,
+                        "gray":       $gray-600,
+                        "gray-dark":  $gray-800
+                ),
+                $colors
 );
 
-$primary:       $green !default;
+$primary:       $blue !default;
 $secondary:     $gray-600 !default;
-$success:       $blue !default;
+$success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
-$light:         $gray-400 !default;
-$dark:          $gray-900 !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
 
 $theme-colors: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
-  (
-    "primary":    $primary,
-    "secondary":  $secondary,
-    "success":    $success,
-    "info":       $info,
-    "warning":    $warning,
-    "danger":     $danger,
-    "light":      $light,
-    "dark":       $dark
-  ),
-  $theme-colors
+                (
+                        "primary":    $primary,
+                        "secondary":  $secondary,
+                        "success":    $success,
+                        "info":       $info,
+                        "warning":    $warning,
+                        "danger":     $danger,
+                        "light":      $light,
+                        "dark":       $dark
+                ),
+                $theme-colors
 );
 
 // Set a specific jump point for requesting color jumps
@@ -103,11 +102,11 @@ $yiq-text-light:            $white !default;
 
 // Characters which are escaped by the escape-svg function
 $escaped-characters: (
-  ("<","%3c"),
-  (">","%3e"),
-  ("#","%23"),
-  ("(","%28"),
-  (")","%29"),
+                ("<", "%3c"),
+                (">", "%3e"),
+                ("#", "%23"),
+                ("(", "%28"),
+                (")", "%29"),
 ) !default;
 
 
@@ -138,31 +137,29 @@ $enable-deprecation-messages:                 true !default;
 
 $spacer: 1rem !default;
 $spacers: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
 $spacers: map-merge(
-  (
-    0: 0,
-    1: ($spacer * .25),
-    2: ($spacer * .5),
-    3: $spacer,
-    4: ($spacer * 1.5),
-    5: ($spacer * 3)
-  ),
-  $spacers
+                (
+                        0: 0,
+                        1: ($spacer * .25),
+                        2: ($spacer * .5),
+                        3: $spacer,
+                        4: ($spacer * 1.5),
+                        5: ($spacer * 3)
+                ),
+                $spacers
 );
 
 // This variable affects the `.h-*` and `.w-*` classes.
 $sizes: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
 $sizes: map-merge(
-  (
-    25: 25%,
-    50: 50%,
-    75: 75%,
-    100: 100%,
-    auto: auto
-  ),
-  $sizes
+                (
+                        25: 25%,
+                        50: 50%,
+                        75: 75%,
+                        100: 100%,
+                        auto: auto
+                ),
+                $sizes
 );
 
 
@@ -198,11 +195,11 @@ $paragraph-margin-bottom:   1rem !default;
 // adapting to different screen sizes, for use in media queries.
 
 $grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
 ) !default;
 
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
@@ -214,10 +211,10 @@ $grid-breakpoints: (
 // Define the maximum width of `.container` for different screen sizes.
 
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px
 ) !default;
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -264,15 +261,14 @@ $transition-fade:             opacity .15s linear !default;
 $transition-collapse:         height .35s ease !default;
 
 $embed-responsive-aspect-ratios: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
 $embed-responsive-aspect-ratios: join(
-  (
-    (21 9),
-    (16 9),
-    (4 3),
-    (1 1),
-  ),
-  $embed-responsive-aspect-ratios
+                        (
+                                        (21 9),
+                                        (16 9),
+                                        (4 3),
+                                        (1 1),
+                        ),
+                $embed-responsive-aspect-ratios
 );
 
 // Typography
@@ -280,8 +276,8 @@ $embed-responsive-aspect-ratios: join(
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      'Roboto', sans-serif !default;
-$font-family-monospace:       "Courier New", monospace !default;
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:            $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
@@ -291,8 +287,8 @@ $font-size-sm:                $font-size-base * .875 !default;
 
 $font-weight-lighter:         lighter !default;
 $font-weight-light:           300 !default;
-$font-weight-normal:          500 !default;
-$font-weight-bold:            900 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
 $font-weight-bolder:          bolder !default;
 
 $font-weight-base:            $font-weight-normal !default;
@@ -546,7 +542,7 @@ $custom-control-label-disabled-color:           $gray-600 !default;
 $custom-control-indicator-checked-color:        $component-active-color !default;
 $custom-control-indicator-checked-bg:           $component-active-bg !default;
 $custom-control-indicator-checked-disabled-bg:  rgba(theme-color("primary"), .5) !default;
-$custom-control-indicator-checked-box-shadow:   none !default;
+$custom-control-indicator-checked-box-shadow:   null !default;
 $custom-control-indicator-checked-border-color: $custom-control-indicator-checked-bg !default;
 
 $custom-control-indicator-focus-box-shadow:     $input-focus-box-shadow !default;
@@ -554,7 +550,7 @@ $custom-control-indicator-focus-border-color:   $input-focus-border-color !defau
 
 $custom-control-indicator-active-color:         $component-active-color !default;
 $custom-control-indicator-active-bg:            lighten($component-active-bg, 35%) !default;
-$custom-control-indicator-active-box-shadow:    none !default;
+$custom-control-indicator-active-box-shadow:    null !default;
 $custom-control-indicator-active-border-color:  $custom-control-indicator-active-bg !default;
 
 $custom-checkbox-indicator-border-radius:       $border-radius !default;
@@ -563,7 +559,7 @@ $custom-checkbox-indicator-icon-checked:        url("data:image/svg+xml,<svg xml
 $custom-checkbox-indicator-indeterminate-bg:           $component-active-bg !default;
 $custom-checkbox-indicator-indeterminate-color:        $custom-control-indicator-checked-color !default;
 $custom-checkbox-indicator-icon-indeterminate:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'><path stroke='#{$custom-checkbox-indicator-indeterminate-color}' d='M0 2h4'/></svg>") !default;
-$custom-checkbox-indicator-indeterminate-box-shadow:   none !default;
+$custom-checkbox-indicator-indeterminate-box-shadow:   null !default;
 $custom-checkbox-indicator-indeterminate-border-color: $custom-checkbox-indicator-indeterminate-bg !default;
 
 $custom-radio-indicator-border-radius:          50% !default;
@@ -651,7 +647,7 @@ $custom-file-box-shadow:            $input-box-shadow !default;
 $custom-file-button-color:          $custom-file-color !default;
 $custom-file-button-bg:             $input-group-addon-bg !default;
 $custom-file-text: (
-  en: "Browse"
+        en: "Browse"
 ) !default;
 
 
@@ -668,19 +664,18 @@ $form-feedback-icon-invalid-color:  $form-feedback-invalid-color !default;
 $form-feedback-icon-invalid:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='#{$form-feedback-icon-invalid-color}' viewBox='0 0 12 12'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-feedback-icon-invalid-color}' stroke='none'/></svg>") !default;
 
 $form-validation-states: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
 $form-validation-states: map-merge(
-  (
-    "valid": (
-      "color": $form-feedback-valid-color,
-      "icon": $form-feedback-icon-valid
-    ),
-    "invalid": (
-      "color": $form-feedback-invalid-color,
-      "icon": $form-feedback-icon-invalid
-    ),
-  ),
-  $form-validation-states
+                (
+                        "valid": (
+                                "color": $form-feedback-valid-color,
+                                "icon": $form-feedback-icon-valid
+                        ),
+                        "invalid": (
+                                "color": $form-feedback-invalid-color,
+                                "icon": $form-feedback-icon-invalid
+                        ),
+                ),
+                $form-validation-states
 );
 
 // Z-index master list
