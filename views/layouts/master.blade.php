@@ -29,12 +29,6 @@
 @auth
     @include('partials.admin-bar')
 @endauth
-@include('partials.navigation')
-
-<div class="container">
-    @yield('content')
-</div>
-@include('partials.footer')
 
 {!! Theme::style('css/secondary.css?v='.config('app.version')) !!}
 {!! Theme::script('js/app.js?v='.config('app.version')) !!}
