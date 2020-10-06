@@ -21,20 +21,17 @@
     @stack('css-stack')
 </head>
 <body>
+
+@auth
+    @include('partials.admin-bar')
+@endauth
+
 <div id="page-wrapper">
     @include('partials.header')
     @yield('content')
     @include('partials.footer')
 </div>
-@auth
-    @include('partials.admin-bar')
-@endauth
-@include('partials.navigation')
 
-<div class="container">
-    @yield('content')
-</div>
-@include('partials.footer')
 
 {!! Theme::style('css/secondary.css?v='.config('app.version')) !!}
 {!! Theme::script('js/app.js?v='.config('app.version')) !!}
@@ -43,6 +40,19 @@
 
 @yield('scripts-owl')
 @yield('scripts')
+
+
+{{-- Custom CSS --}}
+@if((Setting::has('isite::custom-css')))
+    <style> {!! @setting('isite::custom-css') !!} </style>
+@endif
+
+
+{{-- Custom JS --}}
+@if(Setting::has('isite::custom-js'))
+    <script> {!! @setting('isite::custom-js') !!} </script>
+@endif
+
 
 <?php if (Setting::has('isite::chat')): ?>
 {!! Setting::get('isite::chat') !!}
