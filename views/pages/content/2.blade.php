@@ -1,21 +1,7 @@
-<div class="home" data-icontenttype="page" data-icontentid="2">
+<div class="page page-{{$page->id}}" data-icontenttype="page" data-icontentid="{{$page->id}}">
 
     <div class="icontenteditable">
-        Our History
+    	Our History
     </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

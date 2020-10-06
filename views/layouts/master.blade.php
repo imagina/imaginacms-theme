@@ -32,7 +32,6 @@
     @include('partials.footer')
 </div>
 
-
 {!! Theme::style('css/secondary.css?v='.config('app.version')) !!}
 {!! Theme::script('js/app.js?v='.config('app.version')) !!}
 {!! Theme::script('js/all.js?v='.config('app.version')) !!}
