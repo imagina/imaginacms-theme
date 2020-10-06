@@ -13,10 +13,10 @@ var modules = dirs('../../Modules/')
 var jsfilestomerge = []
 
 modules.forEach(function(mname,i) {
-    let pfile = '../../Modules/'+mname+'/Resources/views/vue/components.js'
-    if(fs.existsSync(pfile)) {
-        jsfilestomerge.push([pfile])
-    }
+  let pfile = '../../Modules/'+mname+'/Resources/views/vue/components.js'
+  if(fs.existsSync(pfile)) {
+    jsfilestomerge.push(pfile)
+  }
 });
 
 /**
@@ -40,7 +40,7 @@ mix.scripts([
     'resources/js/imagina.js'
   ], 'assets/js/secondary.js')
   .scripts([
-      'resources/js/app.js',...jsfilestomerge
+    'resources/js/app.js',...jsfilestomerge
   ], 'resources/js/main.js');
 
 
@@ -66,17 +66,17 @@ mix.copy(
  */
 
 modules.forEach(function(mname,i) {
-
-    let path = '../../Modules/'+mname+'/Resources/views/vue/components/'
-
-    if(fs.existsSync(path)) {
-        mix.copy(
-            path,
-            './resources/js/components/'+mname.toLowerCase()
-        );
-    }
-
-
+  
+  let path = '../../Modules/'+mname+'/Resources/views/vue/components/'
+  
+  if(fs.existsSync(path)) {
+    mix.copy(
+      path,
+      './resources/js/components/'+mname.toLowerCase()
+    );
+  }
+  
+  
 });
 
 
