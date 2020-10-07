@@ -17,14 +17,10 @@
     <link rel="shortcut icon" href="{{ Theme::url('favicon.ico') }}">
     <link rel="canonical" href="{{canonical_url()}}"/>
     {!! Theme::style('css/main.css?v='.config('app.version')) !!}
-
+    {!! Theme::script('js/app.js?v='.config('app.version')) !!}
     @stack('css-stack')
 </head>
 <body>
-
-@auth
-    @include('partials.admin-bar')
-@endauth
 
 <div id="page-wrapper">
     @include('partials.header')
@@ -33,7 +29,7 @@
 </div>
 
 {!! Theme::style('css/secondary.css?v='.config('app.version')) !!}
-{!! Theme::script('js/app.js?v='.config('app.version')) !!}
+
 {!! Theme::script('js/all.js?v='.config('app.version')) !!}
 {!! Theme::script('js/secondary.js?v='.config('app.version')) !!}
 
