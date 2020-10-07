@@ -19,10 +19,13 @@
     {!! Theme::style('css/main.css?v='.config('app.version')) !!}
     {!! Theme::script('js/app.js?v='.config('app.version')) !!}
     @stack('css-stack')
+
 </head>
 <body>
 
+
 <div id="page-wrapper">
+    @include('partials.variables')
     @include('partials.header')
     @yield('content')
     @include('partials.footer')
@@ -33,7 +36,10 @@
 {!! Theme::script('js/all.js?v='.config('app.version')) !!}
 {!! Theme::script('js/secondary.js?v='.config('app.version')) !!}
 
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 @yield('scripts-owl')
+@yield('scripts-header')
 @yield('scripts')
 
 
