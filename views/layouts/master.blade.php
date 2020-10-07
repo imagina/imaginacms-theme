@@ -44,14 +44,14 @@
 
 
 {{-- Custom CSS --}}
-@if((Setting::has('isite::custom-css')))
-    <style> {!! Setting::get('isite::custom-css') !!} </style>
+@if((Setting::has('isite::customCss')))
+    <style> {!! Setting::get('isite::customCss') !!} </style>
 @endif
 
 
 {{-- Custom JS --}}
-@if(Setting::has('isite::custom-js'))
-    <script> {!! Setting::get('isite::custom-js') !!} </script>
+@if(Setting::has('isite::customJs'))
+    <script> {!! Setting::get('isite::customJs') !!} </script>
 @endif
 
 
