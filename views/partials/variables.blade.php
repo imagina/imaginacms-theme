@@ -11,8 +11,8 @@
 
     };
 
-      
-    window.Laravel = {!! json_encode([
+      @if(Module::has('Icommerce'))
+        window.Laravel = {!! json_encode([
         
         'user' => Auth::user(),
         'router'    =>[
@@ -50,4 +50,5 @@
             ]
         ]
     ]) !!}
+    @endif
 </script>
