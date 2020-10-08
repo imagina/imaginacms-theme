@@ -7,10 +7,19 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.toastr = require('toastr');
+window.axios = require('axios');
 window.VueCarousel = require('vue-carousel');
 window.Vuelidate = require('vuelidate');
 window.validators = require('vuelidate/lib/validators');
 window.Vue.use(window.Vuelidate.default)
+
+import Vue from 'vue';
+import axios from 'axios';
+import toastr from 'toastr';
+
+window.bus = new Vue();
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
