@@ -16,42 +16,34 @@
     <link rel="canonical" href="{{url()->current()}}" />
     <link rel="shortcut icon" href="{{ Theme::url('favicon.ico') }}">
     <link rel="canonical" href="{{canonical_url()}}"/>
-    {!! Theme::style('css/main.css?v='.config('app.version')) !!}
+    {!! Theme::style('css/app.css?v='.config('app.version')) !!}
     {!! Theme::script('js/app.js?v='.config('app.version')) !!}
     @stack('css-stack')
-
 </head>
 <body>
 
-
 <div id="page-wrapper">
-    @include('partials.variables')
     @include('partials.header')
     @yield('content')
     @include('partials.footer')
 </div>
 
 {!! Theme::style('css/secondary.css?v='.config('app.version')) !!}
-
-{!! Theme::script('js/all.js?v='.config('app.version')) !!}
 {!! Theme::script('js/secondary.js?v='.config('app.version')) !!}
 
-<script src='https://www.google.com/recaptcha/api.js'></script>
-
 @yield('scripts-owl')
-@yield('scripts-header')
 @yield('scripts')
 
 
 {{-- Custom CSS --}}
-@if((Setting::has('isite::customCss')))
-    <style> {!! Setting::get('isite::customCss') !!} </style>
+@if((Setting::has('isite::custom-css')))
+    <style> {!! Setting::get('isite::custom-css') !!} </style>
 @endif
 
 
 {{-- Custom JS --}}
-@if(Setting::has('isite::customJs'))
-    <script> {!! Setting::get('isite::customJs') !!} </script>
+@if(Setting::has('isite::custom-js'))
+    <script> {!! Setting::get('isite::custom-js') !!} </script>
 @endif
 
 

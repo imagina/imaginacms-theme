@@ -22,7 +22,7 @@ modules.forEach(function(mname,i) {
 /**
  * Compile sass
  */
-mix.sass('resources/scss/main.scss', 'assets/css/main.css')
+mix.sass('resources/scss/main.scss', 'assets/css/app.css')
   .sass('resources/scss/secondary.scss', 'assets/css/secondary.css');
 
 /**
@@ -35,13 +35,11 @@ mix.scripts([
   'node_modules/owl.carousel/dist/owl.carousel.min.js',
   'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',
   'node_modules/prismjs/prism.js',
-], 'assets/js/all.js')
-  .scripts([
-    'resources/js/imagina.js'
-  ], 'assets/js/secondary.js')
+  'resources/js/imagina.js'
+], 'tmp/js/secondary.js')
   .scripts([
     'resources/js/app.js',...jsfilestomerge
-  ], 'resources/js/main.js');
+  ], 'tmp/js/app.js');
 
 
 
@@ -89,7 +87,8 @@ mix.copy(
 );
 
 
-mix.js(['resources/js/main.js',], 'assets/js/app.js');
+mix.js(['tmp/js/app.js'], 'assets/js/app.js');
+mix.js(['tmp/js/secondary.js'], 'assets/js/secondary.js');
 
 /**
  * Publishing the assets
