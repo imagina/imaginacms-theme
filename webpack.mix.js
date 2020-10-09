@@ -29,17 +29,17 @@ mix.sass('resources/scss/main.scss', 'assets/css/app.css')
  * Concat scripts
  */
 mix.scripts([
-  'node_modules/jquery/dist/jquery.js',
   'node_modules/popper.js/dist/umd/popper.min.js',
   'node_modules/bootstrap/dist/js/bootstrap.min.js',
   'node_modules/owl.carousel/dist/owl.carousel.min.js',
   'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',
   'node_modules/prismjs/prism.js',
   'resources/js/imagina.js'
-], 'tmp/js/secondary.js')
+], 'resources/js/secondary.js')
   .scripts([
+    'node_modules/jquery/dist/jquery.js',
     'resources/js/app.js',...jsfilestomerge
-  ], 'tmp/js/app.js');
+  ], 'resources/js/main.js');
 
 
 
@@ -87,8 +87,8 @@ mix.copy(
 );
 
 
-mix.js(['tmp/js/app.js'], 'assets/js/app.js');
-mix.js(['tmp/js/secondary.js'], 'assets/js/secondary.js');
+mix.js(['resources/js/main.js'], 'assets/js/app.js');
+mix.js(['resources/js/secondary.js'], 'assets/js/secondary.js');
 
 /**
  * Publishing the assets
@@ -98,5 +98,6 @@ mix.webpackConfig({
     new WebpackShellPlugin({onBuildEnd: ['php ../../artisan stylist:publish ' + themeInfo.name]})
   ]
 });
+
 
 

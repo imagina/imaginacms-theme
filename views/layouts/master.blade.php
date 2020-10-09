@@ -23,6 +23,7 @@
 <body>
 
 <div id="page-wrapper">
+    @include('partials.variables')
     @include('partials.header')
     @yield('content')
     @include('partials.footer')
@@ -32,18 +33,19 @@
 {!! Theme::script('js/secondary.js?v='.config('app.version')) !!}
 
 @yield('scripts-owl')
+@yield('scripts-header')
 @yield('scripts')
 
 
 {{-- Custom CSS --}}
-@if((Setting::has('isite::custom-css')))
-    <style> {!! Setting::get('isite::custom-css') !!} </style>
+@if((Setting::has('isite::customCss')))
+    <style> {!! Setting::get('isite::customCss') !!} </style>
 @endif
 
 
 {{-- Custom JS --}}
-@if(Setting::has('isite::custom-js'))
-    <script> {!! Setting::get('isite::custom-js') !!} </script>
+@if(Setting::has('isite::customJs'))
+    <script> {!! Setting::get('isite::customJs') !!} </script>
 @endif
 
 
