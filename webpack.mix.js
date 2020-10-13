@@ -33,6 +33,7 @@ mix.scripts([
   'node_modules/bootstrap/dist/js/bootstrap.min.js',
   'node_modules/owl.carousel/dist/owl.carousel.min.js',
   'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
+  'node_modules/select2/dist/js/select2.js',
   //'node_modules/prismjs/prism.js',
   'resources/js/imagina.js'
 ], 'resources/js/secondary.js')
@@ -64,17 +65,17 @@ mix.copy(
  */
 
 modules.forEach(function(mname,i) {
-  
+
   let path = '../../Modules/'+mname+'/Resources/views/vue/components/'
-  
+
   if(fs.existsSync(path)) {
     mix.copy(
       path,
       './resources/js/components/'+mname.toLowerCase()
     );
   }
-  
-  
+
+
 });
 
 
