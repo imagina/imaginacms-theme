@@ -37,7 +37,7 @@ mix.scripts([
   'resources/js/imagina.js'
 ], 'resources/js/secondary.js')
   .scripts([
-    'node_modules/jquery/dist/jquery.slim.min.js',
+    'node_modules/jquery/dist/jquery.min.js',
     'resources/js/app.js',...jsfilestomerge
   ], 'resources/js/main.js');
 
