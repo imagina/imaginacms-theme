@@ -23,7 +23,16 @@ modules.forEach(function(mname,i) {
  * Compile sass
  */
 mix.sass('resources/scss/main.scss', 'assets/css/app.css')
-  .sass('resources/scss/secondary.scss', 'assets/css/secondary.css');
+  .sass('resources/scss/secondary.scss', 'assets/css/secondary.css')
+  .sass('node_modules/toastr/toastr.scss','assets/css/toastr.css');
+
+/**
+ * Unified secondary.css
+ */
+mix.styles([
+  'assets/css/toastr.css',
+  'assets/css/secondary.css'
+], 'assets/css/secondary.css');
 
 /**
  * Concat scripts
