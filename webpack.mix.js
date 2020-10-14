@@ -47,6 +47,7 @@ mix.scripts([
 ], 'resources/js/secondary.js')
   .scripts([
     'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/select2/dist/js/select2.js',
     'resources/js/app.js',...jsfilestomerge
   ], 'resources/js/main.js');
 
@@ -73,17 +74,17 @@ mix.copy(
  */
 
 modules.forEach(function(mname,i) {
-  
+
   let path = '../../Modules/'+mname+'/Resources/views/vue/components/'
-  
+
   if(fs.existsSync(path)) {
     mix.copy(
       path,
       './resources/js/components/'+mname.toLowerCase()
     );
   }
-  
-  
+
+
 });
 
 
