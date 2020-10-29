@@ -44,8 +44,9 @@ mix.scripts([
   'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
 ], 'assets/js/secondary.js')
   .scripts([
+    'resources/js/app.js',
     'resources/js/imagina.js',
-    'resources/js/app.js',...jsfilestomerge,
+    ...jsfilestomerge,
   ], 'resources/js/main.js');
 
 
