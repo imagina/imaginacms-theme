@@ -14,11 +14,14 @@
         @endforeach
     @endif
     <link rel="canonical" href="{{url()->current()}}" />
-    <link rel="shortcut icon" href="{{ Theme::url('favicon.ico') }}">
+    <link rel="shortcut icon" href="@setting('isite::favicon')">
     <link rel="canonical" href="{{canonical_url()}}"/>
     {!! Theme::style('css/app.css?v='.config('app.version')) !!}
+    @livewireScripts
+    <x-livewire-alert::scripts />
     {!! Theme::script('js/app.js?v='.config('app.version')) !!}
     @stack('css-stack')
+    @livewireStyles
 </head>
 <body>
 

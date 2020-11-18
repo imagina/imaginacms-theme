@@ -17,6 +17,7 @@ window.Vue.use(window.Vuelidate.default)
 import Vue from 'vue';
 import axios from 'axios';
 import toastr from 'toastr';
+import 'lazysizes';
 
 window.bus = new Vue();
 
