@@ -35,6 +35,20 @@ modules.forEach(function(mname,i) {
       './resources/scss/modules/'+mname.toLowerCase()
     );
   }
+  
+  
+  /**
+   * Copy Modules Source Resources
+   */
+  let path = '../../Modules/'+mname+'/Resources/views/vue/components/'
+  
+  if(fs.existsSync(path)) {
+    mix.copy(
+      path,
+      './resources/js/components/'+mname.toLowerCase()
+    );
+  }
+  
 });
 
 /*
@@ -97,29 +111,6 @@ mix.copy(
   'node_modules/font-awesome/fonts',
   '../../../public_html/fonts/vendor/font-awesome'
 );
-
-
-/*
- * Copy Modules Source Resources
- */
-
-modules.forEach(function(mname,i) {
-  
-  let path = '../../Modules/'+mname+'/Resources/views/vue/components/'
-  
-  if(fs.existsSync(path)) {
-    mix.copy(
-      path,
-      './resources/js/components/'+mname.toLowerCase()
-    );
-  }
-  
-  
-  
-});
-
-
-
 
 mix.js(['resources/js/main.js'], 'assets/js/app.js');
 
