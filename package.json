@@ -15,6 +15,9 @@
     "axios": "^0.19.2",
     "babel-preset-env": "^1.5.2",
     "bootstrap": "^4.5.2",
+    "bootswatch": "^4.5.3",
+    "browser-sync": "^2.26.13",
+    "browser-sync-webpack-plugin": "^2.0.1",
     "cross-env": "^3.2.3",
     "css-loader": "^3.5.3",
     "font-awesome": "^4.3.0",
@@ -29,6 +32,7 @@
     "sass": "^1.26.11",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.11",
+    "webpack-mild-compile": "^3.3.1",
     "webpack-shell-plugin": "^0.5.0"
   },
   "dependencies": {

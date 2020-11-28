@@ -4,5 +4,8 @@
         Home Page
     </div>
 
+
+    @include('partials.bootswatch_demo')
+
 </div>
 
