@@ -9,7 +9,7 @@ mix.webpackConfig({
   },
   plugins: [
     new WebpackMildCompile(), // See: https://github.com/webpack/watchpack/issues/25.
-    new WebpackShellPlugin({onBuildEnd: ['php ../../artisan stylist:publish ' + themeInfo.name]})
+    new WebpackShellPlugin({onBuildEnd: ['/usr/local/lsws/lsphp73/bin/php ../../artisan stylist:publish ' + themeInfo.name]})
   ]
 });
 
@@ -30,6 +30,8 @@ const modules = dirs('../../Modules/');
 let jsfilestomerge = [];
 let scssfilestomerge = [];
 
+// reordering of modules leaving Isite first
+modules.sort(function(x,y){ return x == "Isite" ? -1 : y == "Isite" ? 1 : 0; });
 modules.forEach(function(mname) {
   let pfile = '../../Modules/'+mname+'/Resources/views/vue/components.js';
   if(fs.existsSync(pfile)) {
@@ -61,12 +63,27 @@ mix.copy(
   './'
 );
 
+/**
+ * Concat scripts
+ */
+mix.scripts([
+  'node_modules/popper.js/dist/umd/popper.min.js',
+  'node_modules/bootstrap/dist/js/bootstrap.min.js',
+  'node_modules/owl.carousel/dist/owl.carousel.min.js',
+  'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js'
+], 'assets/js/secondary.js')
+  .scripts([
+    'resources/js/app.js',
+    'resources/js/imagina.js',
+    ...jsfilestomerge,
+  ], 'resources/js/main.js');
+
 
 
 /**
  * Merge main.scss of each module at the bottom of secondary.scss
  */
-mix.combine([...scssfilestomerge], 'resources/scss/_modules.scss');
+mix.combine([...scssfilestomerge], 'resources/scss/_modules-combined.scss');
 
 /**
  * Compile sass
@@ -76,7 +93,8 @@ mix.sass('resources/scss/main.scss', themePublicRelPath+'/css/app.css')
 
 
 
-/*mix.js(['resources/js/main.js'], 'assets/js/app.js');*/
+mix.js(['resources/js/main.js'], themePublicRelPath+'/js/app.js');
+
 
 mix.browserSync({
   //logLevel: 'debug',
@@ -85,5 +103,6 @@ mix.browserSync({
     mix.config.publicPath+'/'+themePublicRelPath+'/css/secondary.css',
     mix.config.publicPath+'/'+themePublicRelPath+'/js/app.js'
   ],*/
-  proxy: 'localhost'
+  proxy: 'localhost',
+  https: true
 });
