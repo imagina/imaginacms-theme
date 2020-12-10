@@ -53,6 +53,18 @@ modules.forEach(function(mname) {
       './resources/scss/modules/'+mname.toLowerCase()
     );
   }
+  
+  /**
+   * Copy Modules Source Resources
+   */
+  let path = '../../Modules/'+mname+'/Resources/views/vue/components/'
+  
+  if(fs.existsSync(path)) {
+    mix.copy(
+      path,
+      './resources/js/components/'+mname.toLowerCase()
+    );
+  }
 });
 
 /*
