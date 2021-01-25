@@ -16,6 +16,7 @@
     <link rel="canonical" href="{{url()->current()}}" />
     <link rel="shortcut icon" href="{{ Theme::url('favicon.ico') }}">
     <link rel="canonical" href="{{canonical_url()}}"/>
+    <link media="all" type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     {!! Theme::style('css/app.css?v='.config('app.version')) !!}
     {!! Theme::script('js/app.js?v='.config('app.version')) !!}
     @stack('css-stack')
@@ -31,6 +32,7 @@
 
 {!! Theme::style('css/secondary.css?v='.config('app.version')) !!}
 {!! Theme::script('js/secondary.js?v='.config('app.version')) !!}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 @yield('scripts-owl')
 @yield('scripts-header')
