@@ -14,11 +14,14 @@
         @endforeach
     @endif
     <link rel="canonical" href="{{url()->current()}}" />
-    <link rel="shortcut icon" href="{{ Theme::url('favicon.ico') }}">
+    <link rel="shortcut icon" href="@setting('isite::favicon')">
     <link rel="canonical" href="{{canonical_url()}}"/>
     {!! Theme::style('css/app.css?v='.config('app.version')) !!}
+ 
     {!! Theme::script('js/app.js?v='.config('app.version')) !!}
+    
     @stack('css-stack')
+    @livewireStyles
 </head>
 <body>
 
@@ -32,6 +35,10 @@
 {!! Theme::style('css/secondary.css?v='.config('app.version')) !!}
 {!! Theme::script('js/secondary.js?v='.config('app.version')) !!}
 
+@livewireScripts
+<x-livewire-alert::scripts />
+
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5fd9384eb64d610011fa8357&product=inline-share-buttons" async="async"></script>
 @yield('scripts-owl')
 @yield('scripts-header')
 @yield('scripts')
