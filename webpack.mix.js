@@ -37,28 +37,28 @@ modules.forEach(function(mname) {
   if(fs.existsSync(pfile)) {
     jsfilestomerge.push(pfile);
   }
-  
+
   let scssfile = '../../Modules/'+mname+'/Resources/scss/main.scss';
   if(fs.existsSync(scssfile)) {
-    
+
     /**
      *  Copy scss directory to the module
      */
     let scssModuleThemePath = './resources/scss/modules/'+mname.toLowerCase()+'/main.scss';
     scssfilestomerge.push(scssModuleThemePath);
-  
+
     let scssPath = '../../Modules/'+mname+'/Resources/scss/';
     mix.copy(
       scssPath,
       './resources/scss/modules/'+mname.toLowerCase()
     );
   }
-  
+
   /**
    * Copy Modules Source Resources
    */
   let path = '../../Modules/'+mname+'/Resources/views/vue/components/'
-  
+
   if(fs.existsSync(path)) {
     mix.copy(
       path,
