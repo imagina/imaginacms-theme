@@ -9,7 +9,7 @@ mix.webpackConfig({
   },
   plugins: [
     new WebpackMildCompile(), // See: https://github.com/webpack/watchpack/issues/25.
-    new WebpackShellPlugin({onBuildEnd: ['/usr/local/lsws/lsphp73/bin/php ../../artisan stylist:publish ' + themeInfo.name]})
+    new WebpackShellPlugin({onBuildEnd: ['php ../../artisan stylist:publish ' + themeInfo.name]})
   ]
 });
 
