@@ -9,15 +9,19 @@
 @stop
 
 @section('content')
-
     @if(LaravelLocalization::getDefaultLocale()==LaravelLocalization::getCurrentLocale())
         @if(View::exists('pages.content.'.$page->id))
             @include('pages.content.'.$page->id)
+        @else
+            @include('page::frontend.default')
         @endif
     @else
-
         @if(View::exists('pages.content.'.LaravelLocalization::getCurrentLocale().'.'.$page->id))
             @include('pages.content.'.LaravelLocalization::getCurrentLocale().'.'.$page->id)
+        @elseif(View::exists('pages.content.'.$page->id))
+            @include('pages.content.'.$page->id)
+        @else
+            @include('pages.content.'.$page->id)
         @endif
     @endif
 
