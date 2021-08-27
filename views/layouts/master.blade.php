@@ -13,7 +13,6 @@
             {!! $link["link"] !!}
         @endforeach
     @endif
-    <link rel="canonical" href="{{url()->current()}}" />
     <link rel="shortcut icon" href="@setting('isite::favicon')">
     <link rel="canonical" href="{{canonical_url()}}"/>
     {!! Theme::style('css/app.css?v='.config('app.version')) !!}
