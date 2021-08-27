@@ -9,8 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>@section('title')@setting('core::site-name')@show</title>
     @if(isset($alternate))
-        @foreach($alternate as $alternateLocale=>$alternateSlug)
-            <link rel="alternate" hreflang="{{$alternateLocale}}" href="{{url($alternateLocale.'/'.$alternateSlug)}}">
+        @foreach($alternate as $link)
+            {!! $link["link"] !!}
         @endforeach
     @endif
     <link rel="canonical" href="{{url()->current()}}" />
