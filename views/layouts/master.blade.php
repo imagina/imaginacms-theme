@@ -2,9 +2,6 @@
 <html lang="{{ LaravelLocalization::getCurrentLocale() }}">
 <head>
     <meta charset="UTF-8">
-    @section('meta')
-        <meta name="description" content="@setting('core::site-description')"/>
-    @show
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>@section('title')@setting('core::site-name')@show</title>
@@ -31,13 +28,14 @@
     @include('partials.footer')
 </div>
 
-{!! Theme::style('css/secondary.css?v='.config('app.version')) !!}
-{!! Theme::script('js/secondary.js?v='.config('app.version')) !!}
+
+{!! Theme::style('css/secondary.css?v='.config('app.version'),["rel" => "preload", "as" => "style", "onload" => "this.onload=null;this.rel='stylesheet'"]) !!}
+{!! Theme::script('js/secondary.js?v='.config('app.version'),["defer" => true]) !!}
 
 @livewireScripts
 <x-livewire-alert::scripts />
 
-<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5fd9384eb64d610011fa8357&product=inline-share-buttons" async="async"></script>
+<script defer type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5fd9384eb64d610011fa8357&product=inline-share-buttons" async="async"></script>
 @yield('scripts-owl')
 @yield('scripts-header')
 @yield('scripts')
