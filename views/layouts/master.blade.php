@@ -12,12 +12,17 @@
     @endif
     <link rel="shortcut icon" href="@setting('isite::favicon')">
     <link rel="canonical" href="{{canonical_url()}}"/>
-    {!! Theme::style('css/app.css?v='.config('app.version')) !!}
+    {!! Theme::style('css/app.css?v='.setting('isite::appVersion')) !!}
  
-    {!! Theme::script('js/app.js?v='.config('app.version')) !!}
+    {!! Theme::script('js/app.js?v='.setting('isite::appVersion')) !!}
     
     @stack('css-stack')
     @livewireStyles
+
+    {{-- Custom JS --}}
+    @if(Setting::has('isite::headerCustomJs'))
+        <script> {!! Setting::get('isite::headerCustomJs') !!} </script>
+    @endif
 </head>
 <body>
 
@@ -29,8 +34,8 @@
 </div>
 
 
-{!! Theme::style('css/secondary.css?v='.config('app.version'),["rel" => "preload", "as" => "style", "onload" => "this.onload=null;this.rel='stylesheet'"]) !!}
-{!! Theme::script('js/secondary.js?v='.config('app.version'),["defer" => true]) !!}
+{!! Theme::style('css/secondary.css?v='.setting('isite::appVersion'),["rel" => "preload", "as" => "style", "onload" => "this.onload=null;this.rel='stylesheet'"]) !!}
+{!! Theme::script('js/secondary.js?v='.setting('isite::appVersion'),["defer" => true]) !!}
 
 @livewireScripts
 <x-livewire-alert::scripts />
