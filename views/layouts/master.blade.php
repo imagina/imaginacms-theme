@@ -19,9 +19,9 @@
     @stack('css-stack')
     @livewireStyles
 
-    {{-- Custom JS --}}
+    {{-- Custom Head JS --}}
     @if(Setting::has('isite::headerCustomJs'))
-        <script> {!! Setting::get('isite::headerCustomJs') !!} </script>
+       {!! Setting::get('isite::headerCustomJs') !!}
     @endif
 </head>
 <body>
