@@ -18,7 +18,6 @@
     <meta property="og:description" content="{{$page->og_description??$page->meta_description ??strip_tags($page->body) }}"/>
     <meta property="og:site_name" content="{{Setting::get('core::site-name') }}"/>
     <meta property="og:locale" content="{{config('asgard.iblog.config.oglocale')}}">
-    <meta property="fb:app_id" content="290785397747585">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="{{ Setting::get('core::site-name') }}">
