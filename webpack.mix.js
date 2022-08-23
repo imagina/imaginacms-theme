@@ -87,6 +87,11 @@ mix.scripts([
   .scripts([
     'resources/js/app.js',
     'resources/js/imagina.js',
+    // 'assets/fontawesome/js/fontawesome.js',
+    'assets/fontawesome/js/brands.js',
+    'assets/fontawesome/js/light.js',
+    'assets/fontawesome/js/solid.js',
+    'assets/fontawesome/js/v4-shims.js',
     ...jsfilestomerge,
   ], 'resources/js/main.js');
 
