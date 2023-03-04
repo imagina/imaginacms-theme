@@ -6,9 +6,6 @@
 
 require('./bootstrap');
 
-window.axios = require('axios');
-
-import axios from 'axios';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
