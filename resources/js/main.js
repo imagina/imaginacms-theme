@@ -1,7 +1,1 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-require('./bootstrap');
+require("./bootstrap");import"lazysizes";import"lazysizes/plugins/parent-fit/ls.parent-fit";window.Swal=require("sweetalert2"),$(document).ready((function(){$.ajaxSetup({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")}})})),window.owlCarousel=require("owl.carousel");

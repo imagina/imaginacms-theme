@@ -15,12 +15,12 @@ mix.webpackConfig({
   ]
 });
 
-const themePublicRelPath = 'themes/'+ themeInfo.name.toLowerCase();
+const themePublicRelPath = 'themes/' + themeInfo.name.toLowerCase();
 mix.setPublicPath('../../public/');
 
 //Import File Helpers
-const { readdirSync, statSync } = require('fs');
-const { join } = require('path');
+const {readdirSync, statSync} = require('fs');
+const {join} = require('path');
 const fs = require('fs');
 
 //Function to get dirs recursive
@@ -33,22 +33,24 @@ let jsfilestomerge = [];
 let scssfilestomerge = [];
 
 // reordering of modules leaving Isite first
-modules.sort(function(x,y){ return x == "Isite" ? -1 : y == "Isite" ? 1 : 0; });
-modules.forEach(function(mname) {
+modules.sort(function (x, y) {
+  return x == "Isite" ? -1 : y == "Isite" ? 1 : 0;
+});
+modules.forEach(function (mname) {
 
-  let scssfile = '../../Modules/'+mname+'/Resources/scss/main.scss';
-  if(fs.existsSync(scssfile)) {
+  let scssfile = '../../Modules/' + mname + '/Resources/scss/main.scss';
+  if (fs.existsSync(scssfile)) {
 
     /**
      *  Copy scss directory to the module
      */
-    let scssModuleThemePath = './resources/scss/modules/'+mname.toLowerCase()+'/main.scss';
+    let scssModuleThemePath = './resources/scss/modules/' + mname.toLowerCase() + '/main.scss';
     scssfilestomerge.push(scssModuleThemePath);
 
-    let scssPath = '../../Modules/'+mname+'/Resources/scss/';
+    let scssPath = '../../Modules/' + mname + '/Resources/scss/';
     mix.copy(
       scssPath,
-      './resources/scss/modules/'+mname.toLowerCase()
+      './resources/scss/modules/' + mname.toLowerCase()
     );
   }
 });
@@ -65,17 +67,18 @@ mix.copy(
  * Concat scripts
  */
 mix.scripts([
+  'node_modules/jquery/dist/jquery.min.js',
+  'node_modules/popper.js/dist/umd/popper.js',
   'node_modules/bootstrap/dist/js/bootstrap.min.js',
   'node_modules/owl.carousel/dist/owl.carousel.min.js',
   'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
   'resources/js/sharethis.js'
-], 'assets/js/secondary.js')
+], '../../public/' + themePublicRelPath + '/js/secondary.js')
   .scripts([
     'resources/js/app.js',
     'resources/js/imagina.js',
     ...jsfilestomerge,
   ], 'resources/js/main.js');
-
 
 
 /**
@@ -86,12 +89,11 @@ mix.combine([...scssfilestomerge], 'resources/scss/_modules-combined.scss');
 /**
  * Compile sass
  */
-mix.sass('resources/scss/main.scss', themePublicRelPath+'/css/app.css')
-    .sass('resources/scss/secondary.scss', themePublicRelPath+'/css/secondary.css');
+mix.sass('resources/scss/main.scss', themePublicRelPath + '/css/app.css')
+  .sass('resources/scss/secondary.scss', themePublicRelPath + '/css/secondary.css');
 
 
-
-mix.js(['resources/js/main.js'], themePublicRelPath+'/js/app.js');
+mix.js(['resources/js/main.js'], themePublicRelPath + '/js/app.js')
 
 
 mix.browserSync({
